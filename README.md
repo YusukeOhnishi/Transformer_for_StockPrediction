@@ -13,6 +13,12 @@ Build and run from dockerfile.
 docker build -t stock_pred .
 docker run -p 8501:8501 stock_pred
 ```
+It is also possible to pull the docker image and build it.
+https://hub.docker.com/repository/docker/yusuke0614/stock_predict/general
+```bash
+docker pull yusuke0614/stock_predict:latest
+docker run -p 8501:8501 yusuke0614/stock_predict
+```
 After executing the above command, access ```http:localhost:8501```.
 ### Local
 Execute the following only when running in a virtual environment.
@@ -22,7 +28,9 @@ source ./source venv/bin/activate
 ```
 Install the necessary libraries and start Streamlit.
 After startup, a URL will be displayed on the console, so access this URL.
+As for torch, installing the regular version is large, so install the lightweight version by specifying the URL.
 ```bash
+pip install torch==2.1.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
 pip install -r requirement.txt
 streamlit run main.py
 ```
